@@ -9,14 +9,14 @@ interface Props {
 }
 
 export default function Note({ title, tags, content }: Props) {
-  const mediaQuerySm = useMediaQuery(Size.Md)
+  const mediaQueryMd = useMediaQuery(Size.Md)
 
   const styles: ComponentStyling = {
     container: {
       margin: '0.5rem',
       padding: '1rem',
       width: '45%',
-      minWidth: `${mediaQuerySm ? '45%' : '100%'}`,
+      minWidth: `${mediaQueryMd ? '45%' : '100%'}`,
       border: '1px solid #eee',
       borderRadius: '0.5rem',
       boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.25)',
