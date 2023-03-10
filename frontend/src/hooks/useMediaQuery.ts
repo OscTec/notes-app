@@ -16,7 +16,7 @@ export default function useMediaQuery(size: Size) {
   useEffect(() => {
     window
       .matchMedia(`(min-width: ${sizeMap[size]}px)`)
-      .addEventListener('change', e => setMatches( e.matches ))
+      .addEventListener('change', (e) => setMatches(e.matches))
   }, [])
 
   return matches

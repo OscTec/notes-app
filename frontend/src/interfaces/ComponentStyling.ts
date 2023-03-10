@@ -1,3 +1,3 @@
 export default interface StyleCSS {
-  [key: string]: React.CSSProperties;
+  [key: string]: React.CSSProperties
 }

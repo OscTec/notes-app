@@ -30,7 +30,7 @@ export default function Note({ title, tags, content }: Props) {
       height: 'auto',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      maxHeight: '6rem'
+      maxHeight: '6rem',
     },
     tagContainer: {
       margin: '0.5rem 0',
@@ -54,7 +54,9 @@ export default function Note({ title, tags, content }: Props) {
       {tags && tags.length > 0 && (
         <ul style={styles.tagContainer}>
           {tags.map((tag) => (
-            <li style={styles.tag} key={tag}>{tag}</li>
+            <li style={styles.tag} key={tag}>
+              {tag}
+            </li>
           ))}
         </ul>
       )}

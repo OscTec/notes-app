@@ -15,9 +15,16 @@ function Notes() {
   const filteredNotes = notes?.filter((note) => {
     const title = note.title.toLowerCase()
     const content = note.content.toLowerCase()
-    const tags = note.tags && note.tags.length > 0 ? note?.tags.join(' ').toLowerCase() : ''
+    const tags =
+      note.tags && note.tags.length > 0
+        ? note?.tags.join(' ').toLowerCase()
+        : ''
     const filter = filterValue.toLowerCase()
-    return title.includes(filter) || content.includes(filter) || tags.includes(filter)
+    return (
+      title.includes(filter) ||
+      content.includes(filter) ||
+      tags.includes(filter)
+    )
   })
 
   useEffect(() => {
@@ -53,14 +60,27 @@ function Notes() {
   return (
     <>
       <div>
-        <input style={styles.search} type="text" placeholder='Search' value={filterValue} onChange={(e) => setFilterValue(e.target.value)} />
+        <input
+          style={styles.search}
+          type="text"
+          placeholder="Search"
+          value={filterValue}
+          onChange={(e) => setFilterValue(e.target.value)}
+        />
       </div>
       <div style={styles.container}>
         {notes === null && <p>Loading...</p>}
         {notes?.length === 0 && <p>No notes yet</p>}
-        {notes && notes?.length > 0 && filteredNotes.map((note) => (
-          <Note key={note.id} title={note.title} tags={note.tags} content={note.content} />
-        ))}
+        {notes &&
+          notes?.length > 0 &&
+          filteredNotes.map((note) => (
+            <Note
+              key={note.id}
+              title={note.title}
+              tags={note.tags}
+              content={note.content}
+            />
+          ))}
       </div>
     </>
   )
